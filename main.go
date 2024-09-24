@@ -14,7 +14,7 @@ func main() {
 	fmt.Printf("Is Palindrome START\n\n")
 	str := []string{"RACEACAR", "A", "ABCDEFGFEDCBA", "ABC", "ABCBA", "ABBA", "RACEACAR"}
 	for i, s := range str {
-		fmt.Printf("Test Case # %d\n", i+1)
+		fmt.Printf("\nTest Case # %d\n", i+1)
 		fmt.Printf("%s\n", strings.Repeat("-", 100))
 		fmt.Printf("The input string is '%s' and the length of the string is %d.\n", s, len(s))
 		fmt.Printf("\nIs it a palindrome?.....%v\n", twopointers.IsPalindrome(s))
