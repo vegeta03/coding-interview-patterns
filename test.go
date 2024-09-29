@@ -45,6 +45,20 @@ func (l *LinkedList[T]) PrintList() {
 	fmt.Println()
 }
 
+func (l *LinkedList[T]) Reverse() {
+	var prev *Node[T]
+	current := l.head
+	var next *Node[T]
+
+	for current != nil {
+		next = current.next
+		current.next = prev
+		prev = current
+		current = next
+	}
+	l.head = prev
+}
+
 func main() {
 	arr := []int{1, 2, 3}
 
