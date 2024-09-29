@@ -66,4 +66,6 @@ func main() {
 
 	linkedList.CreateLinkedList(arr)
 	linkedList.PrintList()
+	linkedList.Reverse()
+	linkedList.PrintList()
 }
