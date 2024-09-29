@@ -1,14 +1,14 @@
 package linkedlist
 
-func (l *LinkedList) Reverse() {
-	var prev *Node = nil
-	var next *Node = nil
+func (l *LinkedList[T]) Reverse() {
+	var prev *Node[T] = nil
+	var next *Node[T] = nil
 	current := l.Head
 
 	for current != nil {
-		next = current.Next
+		next = current.next
 
-		current.Next = prev
+		current.next = prev
 		prev = current
 		current = next
 	}

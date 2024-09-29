@@ -2,44 +2,44 @@ package linkedlist
 
 import (
 	"fmt"
+
+	"golang.org/x/exp/constraints"
 )
 
-type Node struct {
-	Data int
-	Next *Node
+type Node[T constraints.Ordered] struct {
+	data T
+	next *Node[T]
 }
 
-type LinkedList struct {
-	Head *Node
+type LinkedList[T constraints.Ordered] struct {
+	Head *Node[T]
 }
 
-func CreateLinkedList(arr []int) *LinkedList {
-	linkedList := &LinkedList{}
+func (l *LinkedList[T]) CreateLinkedList(arr []T) {
+	var tail *Node[T]
 
 	for _, val := range arr {
-		node := &Node{Data: val}
+		newNode := &Node[T]{
+			data: val,
+			next: nil,
+		}
 
-		if linkedList.Head == nil {
-			linkedList.Head = node
+		if l.Head == nil {
+			l.Head = newNode
+			tail = newNode
 		} else {
-			current := linkedList.Head
-
-			for current.Next != nil {
-				current = current.Next
-			}
-
-			current.Next = node
+			tail.next = newNode
+			tail = newNode
 		}
 	}
-	return linkedList
 }
 
-func (l *LinkedList) PrintList() {
+func (l *LinkedList[T]) PrintList() {
 	current := l.Head
 
 	for current != nil {
-		fmt.Printf("%d ", current.Data)
-		current = current.Next
+		fmt.Printf("%d ", current.data)
+		current = current.next
 	}
 	fmt.Println()
 }
