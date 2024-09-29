@@ -38,7 +38,7 @@ func (l *LinkedList[T]) PrintList() {
 	current := l.Head
 
 	for current != nil {
-		fmt.Printf("%d ", current.data)
+		fmt.Printf("%v ", current.data)
 		current = current.next
 	}
 	fmt.Println()
